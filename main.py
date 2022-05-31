@@ -20,6 +20,17 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 from kivy.uix.textinput import TextInput
 
+# examples:
+# 1 - x**2 + x**2 / (2 + 4 * x) + 0.7885 * np.e**(a * 1j)
+# 1 - x + x**2 + 0.7885 * np.e**(a * 1j)
+# x**4 + x**3/(x-1) + x**2/(x**3 + 4 *x**2 + 5) - 0.5885 * np.e**(a * 1j)
+# x**4 + x**3/(x-1) + x**2/(x**3 + 4 *x**2 + 5) + 0.755534*math.cos(a) + 0.737292*1j*math.cos(a) - 2*0.737292*1j
+# 2**x + 0.2885 * np.e**(a * 1j)
+# x**2 + 0.355534*math.cos(2*a)-0.337292*1j*math.cos(a)
+# x**4 + x**3 / (x - 1) + x**2 / (x**3 + 4 * x**2 + 5) + 0.377767 * math.sin(a) + 0.368646 * 1j * math.sin(a) - 0.368646 * 1j + 0.377767
+# x**2 + a*.01 - a*.3*1j
+# compatible color maps can be found at https://matplotlib.org/3.5.0/tutorials/colors/colormaps.html
+
 curdir = dirname(__file__)
 
 
