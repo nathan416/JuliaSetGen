@@ -1,0 +1,161 @@
+<JuliaGrid>:
+    name: 'TextInputs'
+    GridLayout:
+        cols: 1
+        size_hint_x: .3
+        id: option_box
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Label:
+                text: 'Filename'
+                size_hint_x: .3
+            TextInput:
+                id: filename
+                size_hint_y: None
+                height: '32dp'
+                multiline: False
+                text: root.curr_dir + '\picture.png'
+                base_direction: 'rtl'
+
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Label:
+                text: 'Function'
+                size_hint_x: .3
+            TextInput:
+                id: expr
+                multiline: False
+                size_hint_y: None
+                height: '32dp'
+                text: 'x**2 + 0.37 - 0.1*1j'
+
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Label:
+                text: 'Iterations'
+                size_hint_x: .3
+            IntInput:
+                id: iterations
+                input_value: 100
+                size_hint_y: None
+                height: '32dp'
+                multiline: False
+                input_filter: 'int'
+                text: str(100)
+
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Label:
+                text: 'Color Map'
+                size_hint_x: .3
+            TextInput:
+                id: cmap
+                multiline: False
+                size_hint_y: None
+                height: '32dp'
+                text: 'gnuplot'
+
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Label:
+                text: 'Aspect Ratio'
+                size_hint_x: .3
+            AspectRatioInput
+                id: aspect_ratio
+                aspect_ratio: aspect_ratio.__self__
+                size_hint_y: None
+                height: '32dp'
+                multiline: False
+                text: '16:9'
+                
+
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Label:
+                text: 'Image Width'
+                size_hint_x: .3
+            IntInput:
+                id: image_width
+                size_hint_y: None
+                height: '32dp'
+                multiline: False
+                input_filter: 'int'
+                text: str(1920)
+
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Label:
+                text: 'Image Height'
+                size_hint_x: .3
+            TextInput:
+                id: image_height
+                size_hint_y: None
+                height: '32dp'
+                multiline: False
+                text: str(int(image_width.input_value * aspect_ratio.y_val / aspect_ratio.x_val))
+                read_only: True
+        
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Label:
+                text: 'Center Coordinates'
+                size_hint_x: .3
+            CoordinateInput:
+                id: coordinates
+                size_hint_y: None
+                height: '32dp'
+                multiline: False
+                text: '0.0,0.0'
+        
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Label:
+                text: 'Zoom'
+                size_hint_x: .3
+            FloatInput:
+                id: zoom
+                size_hint_y: None
+                height: '32dp'
+                multiline: False
+                input_filter: 'float'
+                text: '1.0'
+        
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Button:
+                id: generate
+                size_hint_x: .5
+                size_hint_y: .7
+                height: '48dp'
+                text: 'Generate'
+                on_release: root.save_julia_set()
+
+        BoxLayout:
+            size_hint_y: None
+            height: '48dp'
+            Button:
+                id: save
+                size_hint_x: .5
+                size_hint_y: .7
+                height: '48dp'
+                text: 'Save'
+                on_release: root.save_to_file()
+    BoxLayout:
+        size_hint_y: .5
+        height: '150dp'
+        Image:
+            id: image
+            allow_stretch: True
+            keep_ratio: True
+
+
