@@ -9,7 +9,7 @@ from time import sleep
 
 from kivy.config import Config
 Config.set('graphics', 'window_state', 'maximized')
-from julia_set_image import save_julia_set_image, save_img_to_file, JuliaSetGenerator
+from julia_set_image import save_img_to_file, JuliaSetGenerator
 from kivy.app import App
 from kivy.clock import Clock
 from kivy.core.image import Image as CoreImage
