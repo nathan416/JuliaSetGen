@@ -190,7 +190,7 @@ class JuliaApp(App):
 
 class PlotThread(threading.Thread):
     def __init__(self, grid: JuliaGrid, threadID, name, args):
-        threading.Thread.__init__(self)
+        threading.Thread.__init__(self, daemon=True)
         self.threadID = threadID
         self.name = name
         self.args = args
