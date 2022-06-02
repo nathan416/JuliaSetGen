@@ -2,12 +2,12 @@
 This is a kivy app that can generate any julia set image based off a given expression.
 It uses sympy and numba Cuda to interpret the expression into images and then displays them in the app.
 
-it needs https://developer.nvidia.com/cuda-downloads if to you want to make use of a cuda(Nvidia) gpu.
-the gpu will take ~2 seconds to create an image
-the cpu will take ~60 seconds to create an image
-these times are very dependent on the amount of cores, speed, etc of cpu and gpu
+it needs https://developer.nvidia.com/cuda-downloads if to you want to make use of a cuda(Nvidia) gpu.  
+the gpu will take ~2 seconds to create an image  
+the cpu will take ~60 seconds to create an image  
+these times are very dependent on the amount of cores, speed, etc of cpu and gpu  
 
-compatible color maps can be found at https://matplotlib.org/3.5.0/tutorials/colors/colormaps.html
+compatible color maps can be found at https://matplotlib.org/3.5.0/tutorials/colors/colormaps.html  
 
 examples to try:  
 1 - x\*\*2 + x\*\*2 / (2 + 4 \* x) + 0.7885  
