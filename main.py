@@ -9,7 +9,7 @@ from time import sleep
 
 from kivy.config import Config
 Config.set('graphics', 'window_state', 'maximized')
-from julia_set_image import save_julia_set_image, save_img_to_file
+from julia_set_image import save_julia_set_image, save_img_to_file, JuliaSetGenerator
 from kivy.app import App
 from kivy.clock import Clock
 from kivy.core.image import Image as CoreImage
@@ -68,8 +68,9 @@ class JuliaGrid(GridLayout):
         filename = filename.replace('/', '\\')
 
         if image_width * image_height < 178956970:
+            
             self.curr_img = None
-            save_thread = PlotThread(self, 1, 'save_thread', args=(filename, expr, real_range_min, real_range_max, imag_range_min, imag_range_max, image_width, image_height, False, 0, iterations, cmap))
+            save_thread = PlotThread(self, 1, 'save_thread', args=(filename, expr, real_range_min, real_range_max, imag_range_min, imag_range_max, image_width, image_height, False, iterations, cmap))
             save_thread.start()
             if self.status_box is None:
                 self.status_box = BoxLayout(size_hint_y=None, height='48dp')
@@ -196,7 +197,8 @@ class PlotThread(threading.Thread):
         self.grid = grid
 
     def run(self):
-        img = save_julia_set_image(*self.args)
+        julia_set = JuliaSetGenerator(*self.args)
+        img = julia_set.save_julia_set_image()
         Clock.schedule_once(partial(self.grid.set_curr_img_property, img))
         while(self.grid.curr_img is None):
             ...
